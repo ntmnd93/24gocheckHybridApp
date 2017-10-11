@@ -24,21 +24,20 @@ angular.module('shop.module')
           }
         }
       })
-      .state('app.menu.shop.error', {
-        url: '/error',
-        views: {
-          'shopContent': {
-            templateUrl: 'app/shop/templates/error-function.html',
-            controller: 'ShopHomeCtrl'
-          }
-        }
-      })
       .state('app.menu.shop.item', {
         url: '/item/:id',
         views: {
           'shopContent': {
             templateUrl: 'app/shop/templates/shop-item.html',
             controller: 'ShopItemCtrl'
+          }
+        }
+      })
+      .state('app.menu.shop.review', {
+        url: '/review/:id',
+        views: {
+          'tab-review': {
+            templateUrl: 'app/shop/widgets/item-rating/review-nav.html'
           }
         }
       })
@@ -78,6 +77,15 @@ angular.module('shop.module')
           }
         }
       })
+      // .state('app.menu.shop.shopdetail', {
+      //   url: '/shopdetail',
+      //   views: {
+      //     'shopContent': {
+      //       templateUrl: 'app/shop/templates/shop-detail.html',
+      //       controller: 'ShopDetailCtrl'
+      //     }
+      //   }
+      // })
       .state('app.menu.shop.category', {
         url: '/category/:id',
         views: {
@@ -133,7 +141,7 @@ angular.module('shop.module').directive("fileread", ['dataService', '$ionicLoadi
  <filter-box placeholder="Search" filtertext="vm.search" ng-model-options="{debounce: 1000}"></filter-box>
  </pre>
  */
-angular.module('shop.module').directive('filterBox', function () {
+angular.module('shop.module').directive('filterBox', function ($rootScope) {
   return {
     restrict: 'E',
     replace: true,
@@ -147,20 +155,36 @@ angular.module('shop.module').directive('filterBox', function () {
       scope.placeholder = attrs.placeholder || '';
       scope.search = {value: ''};
 
+
+      scope.check = function(){
+        if(scope.search.value.length > 0 ){
+
+          $rootScope.checking = true;
+
+        }else{
+          $rootScope.checking = false;
+        }
+      }
+
+
+
+
       scope.clearSearch = function () {
         scope.search.value = "";
+        $rootScope.checking = false;
         scope.change();
       };
     },
-    template: ' <div id="filter-box" class="item-input-inset">' +
-    '<div class="item-input-wrapper">' +
-    '<i class="icon ion-android-search"></i>' +
-    '<input type="search" placeholder="{{placeholder}}" style="width: 100%;" ng-model="search.value" ng-change="change()">' +
-    '</div>' +
-
-    '<button class="button button-clear ion-close button-small" style="color: #333" ng-if="search.value.length > 0" ng-click="clearSearch()">' +
-    '</button>' +
-    '</div>'
+    // template: ' <div id="filter-box" class="item-input-inset">' +
+    // '<div class="item-input-wrapper search-bar">' +
+    // '<i class="icon ion-android-search"></i>' +
+    // '<input class="search-input" type="search" placeholder="{{placeholder}}" style="width: 100%;" ng-model="search.value" ng-change="change()">' +
+    // '</div>' +
+    //
+    // '<button class="button button-clear ion-close button-small" style="color: #333" ng-if="search.value.length > 0" ng-click="clearSearch()">' +
+    // '</button>' +
+    // '</div>'
+        templateUrl: 'app/shop/templates/search-bar.html'
   };
 })
 

@@ -737,7 +737,7 @@ window.ionic.version = '1.3.3';
 
     this.element = element;
 
-    // start/stop detection option
+    // start/stop detection options
     this.enabled = true;
 
     // merge options
@@ -12515,7 +12515,7 @@ ionic.views.Slider = ionic.views.View.inherit({
                         if (html.indexOf('<tr') === 0) toCreate = 'tbody';
                         if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) toCreate = 'tr';
                         if (html.indexOf('<tbody') === 0) toCreate = 'table';
-                        if (html.indexOf('<option') === 0) toCreate = 'select';
+                        if (html.indexOf('<options') === 0) toCreate = 'select';
                         tempParent = document.createElement(toCreate);
                         tempParent.innerHTML = selector;
                         for (i = 0; i < tempParent.childNodes.length; i++) {

@@ -22,12 +22,78 @@
     <div ng-switch="categories">
       <ion-list ng-switch-when="shopstab">
         <ion-item>
-          <p>Đạt bắt thông tin Tab Shops ở đây</p>
+          <div class="list" style="padding: 4%;">
+
+            <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
+              <a class="row" href="#" style="height: 120px;">
+                <div class="col-35">
+                  <img class="full-image" ng-src="{{item.thumb}}"
+                       default-image="app/shop/images/placeholder.png"
+                       fallback-image="app/shop/images/placeholder.png"/>
+                  <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+                </div>
+                <div class="col-67" style="text-align: left; padding: 0 1em;">
+                  <h2 ng-bind-html="item.name"></h2>
+                  <p><i class="icon ion-ios-location-outline"></i> 169 Nguyễn Ngọc Vũ, P.Trung Hòa</p>
+                  <p>
+                    <span style="color:#f28a53;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                    <!-- <span class="mobile-offer-item">
+              <i class="icon ion-iphone"></i>{{::item.mobile_special}}
+            </span> -->
+                  </p>
+                  <p>
+                  <div style="display: block">
+                    <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
+                                   ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
+                    <!--class="col-20 button button-full button-clear item-price-button"-->
+                    <!--style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">-->
+                    <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
+                    <!--</button>-->
+                  </div>
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
         </ion-item>
       </ion-list>
       <ion-list ng-switch-when="productstab">
         <ion-item>
-          <p>Đạt bắt thông tin Tab Products ở đây</p>
+          <div class="list" style="padding: 4%;">
+
+            <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
+              <a class="row" href="#" style="height: 120px;">
+                <div class="col-35">
+                  <img class="full-image" ng-src="{{item.thumb}}"
+                       default-image="app/shop/images/placeholder.png"
+                       fallback-image="app/shop/images/placeholder.png"/>
+                  <span class="badge badge-assertive"  ng-if="item.off"  i18n="shop.off" data-percent="{{item.off}}"></span>
+                </div>
+                <div class="col-67" style="text-align: left; padding: 0 1em;">
+                  <h2 ng-bind-html="item.name"></h2>
+                  <p><i class="icon ion-ios-location-outline"></i> 169 Nguyễn Ngọc Vũ, P.Trung Hòa</p>
+                  <p>
+                    <span style="color:#f28a53;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                    <!-- <span class="mobile-offer-item">
+              <i class="icon ion-iphone"></i>{{::item.mobile_special}}
+            </span> -->
+                  </p>
+                  <p>
+                  <div style="display: block">
+                    <ionic-ratings class="col-40" style="float: left; font-size: 14px;"
+                                   ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                    <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
+                    <!--class="col-20 button button-full button-clear item-price-button"-->
+                    <!--style="margin-top: -10px; float: right;" ng-click="addToWishlist(item.product_id)">-->
+                    <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
+                    <!--</button>-->
+                  </div>
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
         </ion-item>
       </ion-list>
     </div>

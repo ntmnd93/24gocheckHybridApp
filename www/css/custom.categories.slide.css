@@ -1,0 +1,55 @@
+#iconSlide {
+  display: flex;
+  white-space: nowrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#iconSlide li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 120px;
+}
+
+#iconSlide li a span {
+  display: block;
+  color: #ffffff;
+  font-size: 13px;
+  position: relative;
+  bottom: -16px;
+  margin: 0 auto;
+
+}
+#iconSlide li a .cat-name {
+  width: 80px;
+  margin: 0 auto;
+}
+
+#iconSlide li a {
+  text-align: center;
+  height:60px;
+  background: #f7f7f7;
+}
+#iconSlide img {
+  height: 50px;
+  width: 120px;
+  border-radius: 7%;
+  padding-left: 5px;
+  padding-right:5px;
+}
+
+
+.parent-background {
+  background-size: cover;
+  height: 50px;
+  width: 120px;
+  border-radius: 7px;
+  margin-left: 3px;
+  margin-right: 5px;
+}
+.background-opacity {
+  height: 50px;
+  background: #82603c;
+  opacity: .8;
+  border-radius: 7px;
+}

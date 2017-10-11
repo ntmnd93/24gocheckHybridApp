@@ -1,6 +1,6 @@
 .bar.bar-dark {
   background-color: #FFFFFF;
-  border-color: #8cc63f;
+  border-color: #03c320;
 }
 
 .noti-segment {
@@ -11,6 +11,7 @@
   margin: 10px 0;
   padding: 0 40px;
 }
+
 .search-segment {
   padding: 0 11px;
   margin-bottom: 7px;
@@ -86,8 +87,8 @@ ul#ion-segment[stable] li.active {
   color: #fff; }
 
 ul#ion-segment[stable] li {
-  border-color: #f8f8f8;
-  color: #f8f8f8; }
+  border-color: #03c320;
+  color: #03c320; }
 
 ul#ion-segment[stable] li:hover:not(.active) {
   background-color: rgba(248, 248, 248, 0.1); }
@@ -137,12 +138,12 @@ ul#ion-segment[energized] li:hover:not(.active) {
   background-color: rgba(255, 201, 0, 0.1); }
 
 ul#ion-segment[assertive] li.active {
-  background-color: #8cc63f;
+  background-color: #03c320;
   color: #fff; }
 
 ul#ion-segment[assertive] li {
-  border-color: #8cc63f;
-  color: #8cc63f; }
+  border-color: #03c320;
+  color: #03c320; }
 
 ul#ion-segment[assertive] li:hover:not(.active) {
   background-color: rgba(239, 71, 58, 0.1); }

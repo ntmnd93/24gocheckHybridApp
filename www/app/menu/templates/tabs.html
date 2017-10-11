@@ -9,13 +9,13 @@
   <ion-tab title="{{ 'menu.notification' | i18n }}" icon-off="ionic-notification-icon" icon-on="ionic-notification-icon" href="#/app/menu/notification/home">
     <ion-nav-view name="tab-notification"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.options' | i18n }}" icon-off="ion-plus-round" icon-on="ion-plus-round" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/shop/error">
-    <ion-nav-view name="tab-plus"></ion-nav-view>
+  <ion-tab title="{{ 'menu.option' | i18n }}" icon-off="ion-plus-round" icon-on="ion-plus-round" href="#/app/menu/option/home">
+    <ion-nav-view name="tab-option"></ion-nav-view>
   </ion-tab>
   <ion-tab title="{{ 'menu.cart' | i18n }}" icon-off="ionic-cart-icon" icon-on="ionic-cart-icon" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/cart/home">
     <ion-nav-view name="tab-cart"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" ng-click="openLoginModal()" hidden="{{userLoggedIn()}}" >
+  <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" ng-click="openLoginModal()" hidden="{{userLoggedIn() ? true : false}}" >
     <ion-nav-view name="tab-info"></ion-nav-view>
   </ion-tab>
   <ion-tab title="{{ 'menu.account' | i18n }}" icon-off="ionic-account-icon" icon-on="ionic-account-icon" hidden="{{!userLoggedIn()}}" href="#/app/menu/info/home">

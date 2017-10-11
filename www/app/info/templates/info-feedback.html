@@ -1,6 +1,6 @@
 <ion-view view-title="{{ 'info.title_info_feedback' | i18n }}">
   <ion-content>
-    <div class="list list-inset" ng-if="!userLoggedIn()">
+    <div class="list list-inset" ng-if="userLoggedIn()">
       <form name="feedbackForm" ng-submit="postReplyData()">
         <span class="input-label"  data-i18n="modals.feedback_title" ></span>
         <label class="item item-input">
@@ -8,9 +8,11 @@
         </label>
 
         <span class="input-label"  data-i18n="modals.feedback_rate" ></span>
-        <label class="item item-input">
-          <input type="number" name="rate" ng-model="feedback.rate" required>
-        </label>
+        <div class="item range range-positive">
+          <i class="icon"><p>1</p></i>
+          <input type="range" name="rate" ng-model="feedback.rate" required min="1" max="5" value="3">
+          <i class="icon"><p>5</p></i>
+        </div>
 
         <span class="input-label"  data-i18n="modals.feedback_description" ></span>
         <label class="item item-input">

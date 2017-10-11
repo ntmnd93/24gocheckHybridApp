@@ -1,34 +1,34 @@
 .ionic-shop-icon{
-  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/home_zpsxartb2sb.png");
+  background-image: url("http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/home-100x100.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 27px 28px;
 }
 
 .ionic-notification-icon {
-  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/Notification_zpsydu5sij9.png");
+  background-image: url("http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Notification-100x100.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 27px 28px;
 }
 
 .ionic-cart-icon {
-  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/cart_zpscauw6w6v.png");
+  background-image: url("http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/cart-100x100.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 27px 28px;
 }
 .ionic-account-icon {
-  background-image: url("http://i956.photobucket.com/albums/ae49/monki3010/user_zpshwuxkoob.png");
+  background-image: url("http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/user-100x100.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 27px 28px;
 }
 
 .ion-plus-round:before {
-  font-size: 50px;
+  font-size: 38px;
   font-weight: 800;
   position: relative;
-  top: 6px;
+  top: 0px;
 }
 

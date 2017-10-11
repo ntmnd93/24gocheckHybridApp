@@ -1,0 +1,47 @@
+<ion-view view-title="Options" cache-view="false">
+  <ion-content>
+      <h1>Coming soon</h1>
+  </ion-content>
+</ion-view>
+
+
+
+<ion-side-menus>
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menu"></ion-nav-view>
+
+  </ion-side-menu-content>
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title"><img src="img/logo.svg" style="height: 17px;vertical-align: middle;"/></h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <a menu-close href="#/app/menu/shop/home" class="item item-icon-left">
+          <i class="ionic-shop-icon"></i> {{ 'menu.shop' | i18n }}
+        </a>
+        <a menu-close href="#/app/menu/notification/home" class="item item-icon-left">
+          <i class="ionic-notification-icon"></i> {{ 'menu.notification' | i18n }}
+        </a>
+        <a menu-close href="#/app/menu/options/home" class="item item-icon-left">
+          <i class="icon ion-plus-round"></i> {{ 'menu.option' | i18n }}
+        </a>
+        <a menu-close icon-on="ion-ios-more-outline" href="#/app/menu/cart/home" class="item item-icon-left">
+          <i class="icon ion-ios-more-outline"></i> {{ 'menu.cart' | i18n }}
+        </a>
+        <div menu-close ng-click="openLoginModal()" class="item item-icon-left">
+          <i class="ionic-account-icon"></i>{{ 'menu.account' | i18n }}
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

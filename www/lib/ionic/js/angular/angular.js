@@ -3164,7 +3164,7 @@ forEach('multiple,selected,checked,disabled,readOnly,required,open'.split(','), 
   BOOLEAN_ATTR[lowercase(value)] = value;
 });
 var BOOLEAN_ELEMENTS = {};
-forEach('input,select,option,textarea,button,form,details'.split(','), function(value) {
+forEach('input,select,options,textarea,button,form,details'.split(','), function(value) {
   BOOLEAN_ELEMENTS[value] = true;
 });
 var ALIASED_ATTR = {
@@ -8673,7 +8673,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           hasTranscludeDirective = true;
 
           // Special case ngIf and ngRepeat so that we don't complain about duplicate transclusion.
-          // This option should only be used by directives that know how to safely handle element transclusion,
+          // This options should only be used by directives that know how to safely handle element transclusion,
           // where the transcluded nodes are added or replaced after linking.
           if (!directive.$$tlb) {
             assertNoDuplicate('transclusion', nonTlbTranscludeDirective, directive, $compileNode);
@@ -26628,7 +26628,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * This method should be called when a control wants to change the view value; typically,
    * this is done from within a DOM event handler. For example, the {@link ng.directive:input input}
    * directive calls it when the value of the input changes and {@link ng.directive:select select}
-   * calls it when an option is selected.
+   * calls it when an options is selected.
    *
    * When `$setViewValue` is called, the new `value` will be staged for committing through the `$parsers`
    * and `$validators` pipelines. If there are no special {@link ngModelOptions} specified then the staged
@@ -27580,17 +27580,17 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
     // The variable name for the key of the item in the collection
     var keyName = match[6];
 
-    // An expression that generates the viewValue for an option if there is a label expression
+    // An expression that generates the viewValue for an options if there is a label expression
     var selectAs = / as /.test(match[0]) && match[1];
     // An expression that is used to track the id of each object in the options collection
     var trackBy = match[9];
-    // An expression that generates the viewValue for an option if there is no label expression
+    // An expression that generates the viewValue for an options if there is no label expression
     var valueFn = $parse(match[2] ? match[1] : valueName);
     var selectAsFn = selectAs && $parse(selectAs);
     var viewValueFn = selectAsFn || valueFn;
     var trackByFn = trackBy && $parse(trackBy);
 
-    // Get the value by which we are going to track the option
+    // Get the value by which we are going to track the options
     // if we have a trackFn then use that (passing scope and locals)
     // otherwise just hash the given viewValue
     var getTrackByValueFn = trackBy ?
@@ -27681,7 +27681,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
         var optionItems = [];
         var selectValueMap = {};
 
-        // The option values were already computed in the `getWatchables` fn,
+        // The options values were already computed in the `getWatchables` fn,
         // which must have been called to trigger `getOptions`
         var optionValues = valuesFn(scope) || [];
         var optionValuesKeys = getOptionValuesKeys(optionValues);
@@ -27710,7 +27710,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
           },
           getViewValueFromOption: function(option) {
             // If the viewValue could be an object that may be mutated by the application,
-            // we need to make a copy and not return the reference to the value on the option.
+            // we need to make a copy and not return the reference to the value on the options.
             return trackBy ? angular.copy(option.viewValue) : option.viewValue;
           }
         };
@@ -27719,7 +27719,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
   }
 
 
-  // we can't just jqLite('<option>') since jqLite is not smart enough
+  // we can't just jqLite('<options>') since jqLite is not smart enough
   // to create it in <select> and IE barfs otherwise.
   var optionTemplate = document.createElement('option'),
       optGroupTemplate = document.createElement('optgroup');
@@ -27731,7 +27731,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
       var multiple = attr.multiple;
 
       // The emptyOption allows the application developer to provide their own custom "empty"
-      // option when the viewValue does not match any of the option values.
+      // options when the viewValue does not match any of the options values.
       var emptyOption;
       for (var i = 0, children = selectElement.children(), ii = children.length; i < ii; i++) {
         if (children[i].value === '') {
@@ -27783,8 +27783,8 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
           var option = options.getOptionFromViewValue(value);
 
           if (option && !option.disabled) {
-            // Don't update the option when it is already selected.
-            // For example, the browser will select the first option by default. In that case,
+            // Don't update the options when it is already selected.
+            // For example, the browser will select the first options by default. In that case,
             // most properties are set automatically - except the `selected` attribute, which we
             // set always
 
@@ -27900,7 +27900,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
       // when we first hit it in writeNgOptionsValue
       updateOptions();
 
-      // We will re-render the option elements if the option values or labels change
+      // We will re-render the options elements if the options values or labels change
       scope.$watchCollection(ngOptions.getWatchables, updateOptions);
 
       // ------------------------------------------------------------------ //
@@ -27911,7 +27911,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
         element.disabled = option.disabled;
         // NOTE: The label must be set before the value, otherwise IE10/11/EDGE create unresponsive
         // selects in certain circumstances when multiple selects are next to each other and display
-        // the option list in listbox style, i.e. the select is [multiple], or specifies a [size].
+        // the options list in listbox style, i.e. the select is [multiple], or specifies a [size].
         // See https://github.com/angular/angular.js/issues/11314 for more info.
         // This is unfortunately untestable with unit / e2e tests
         if (option.label !== element.label) {
@@ -27956,8 +27956,8 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
         var emptyOption_ = emptyOption && emptyOption[0];
         var unknownOption_ = unknownOption && unknownOption[0];
 
-        // We cannot rely on the extracted empty option being the same as the compiled empty option,
-        // because the compiled empty option might have been replaced by a comment because
+        // We cannot rely on the extracted empty options being the same as the compiled empty options,
+        // because the compiled empty options might have been replaced by a comment because
         // it had an "element" transclusion directive on it (such as ngIf)
         if (emptyOption_ || unknownOption_) {
           while (current &&
@@ -27981,7 +27981,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
         var groupMap = {};
         var currentElement = selectElement[0].firstChild;
 
-        // Ensure that the empty option is always there if it was explicitly provided
+        // Ensure that the empty options is always there if it was explicitly provided
         if (providedEmptyOption) {
           selectElement.prepend(emptyOption);
         }
@@ -27995,7 +27995,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
 
           if (isDefined(option.group)) {
 
-            // This option is to live in a group
+            // This options is to live in a group
             // See if we have already created this group
             group = groupMap[option.group];
 
@@ -28020,7 +28020,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
 
             }
 
-            // So now we have a group for this option we add the option to the group
+            // So now we have a group for this options we add the options to the group
             optionElement = addOrReuseElement(group.groupElement,
                                               group.currentOptionElement,
                                               'option',
@@ -28031,7 +28031,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
 
           } else {
 
-            // This option is not in a group
+            // This options is not in a group
             optionElement = addOrReuseElement(selectElement[0],
                                               currentElement,
                                               'option',
@@ -28071,7 +28071,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
     link: {
       pre: function ngOptionsPreLink(scope, selectElement, attr, ctrls) {
         // Deactivate the SelectController.register method to prevent
-        // option directives from accidentally registering themselves
+        // options directives from accidentally registering themselves
         // (and unwanted $destroy handlers etc.)
         ctrls[0].registerOption = noop;
       },
@@ -29712,7 +29712,7 @@ var noopNgModelController = { $setViewValue: noop, $render: noop };
 
 function chromeHack(optionElement) {
   // Workaround for https://code.google.com/p/chromium/issues/detail?id=381459
-  // Adding an <option selected="selected"> element to a <select required="required"> should
+  // Adding an <options selected="selected"> element to a <select required="required"> should
   // automatically select the new element
   if (optionElement[0].hasAttribute('selected')) {
     optionElement[0].selected = true;
@@ -29725,7 +29725,7 @@ function chromeHack(optionElement) {
  * @description
  * The controller for the `<select>` directive. This provides support for reading
  * and writing the selected value(s) of the control and also coordinates dynamically
- * added `<option>` elements, perhaps by an `ngRepeat` directive.
+ * added `<options>` elements, perhaps by an `ngRepeat` directive.
  */
 var SelectController =
         ['$element', '$scope', function($element, $scope) {
@@ -29736,11 +29736,11 @@ var SelectController =
   // If the ngModel doesn't get provided then provide a dummy noop version to prevent errors
   self.ngModelCtrl = noopNgModelController;
 
-  // The "unknown" option is one that is prepended to the list if the viewValue
+  // The "unknown" options is one that is prepended to the list if the viewValue
   // does not match any of the options. When it is rendered the value of the unknown
-  // option is '? XXX ?' where XXX is the hashKey of the value that is not known.
+  // options is '? XXX ?' where XXX is the hashKey of the value that is not known.
   //
-  // We can't just jqLite('<option>') since jqLite is not smart enough
+  // We can't just jqLite('<options>') since jqLite is not smart enough
   // to create it in <select> and IE barfs otherwise.
   self.unknownOption = jqLite(document.createElement('option'));
   self.renderUnknownOption = function(val) {
@@ -29751,7 +29751,7 @@ var SelectController =
   };
 
   $scope.$on('$destroy', function() {
-    // disable unknown option so that we don't do work when the whole select is being destroyed
+    // disable unknown options so that we don't do work when the whole select is being destroyed
     self.renderUnknownOption = noop;
   });
 
@@ -29786,12 +29786,12 @@ var SelectController =
   };
 
 
-  // Tell the select control that an option, with the given value, has been added
+  // Tell the select control that an options, with the given value, has been added
   self.addOption = function(value, element) {
     // Skip comment nodes, as they only pollute the `optionsMap`
     if (element[0].nodeType === NODE_TYPE_COMMENT) return;
 
-    assertNotHasOwnProperty(value, '"option value"');
+    assertNotHasOwnProperty(value, '"options value"');
     if (value === '') {
       self.emptyOption = element;
     }
@@ -29801,7 +29801,7 @@ var SelectController =
     chromeHack(element);
   };
 
-  // Tell the select control that an option, with the given value, has been removed
+  // Tell the select control that an options, with the given value, has been removed
   self.removeOption = function(value) {
     var count = optionsMap.get(value);
     if (count) {
@@ -29816,7 +29816,7 @@ var SelectController =
     }
   };
 
-  // Check whether the select control has an option matching the given value
+  // Check whether the select control has an options matching the given value
   self.hasOption = function(value) {
     return !!optionsMap.get(value);
   };
@@ -30097,7 +30097,7 @@ var selectDirective = function() {
       // doesn't trigger rendering if only an item in the array changes.
       if (attr.multiple) {
 
-        // Read value now needs to check each option to see if it is selected
+        // Read value now needs to check each options to see if it is selected
         selectCtrl.readValue = function readMultipleValue() {
           var array = [];
           forEach(element.find('option'), function(option) {
@@ -30108,7 +30108,7 @@ var selectDirective = function() {
           return array;
         };
 
-        // Write value now needs to set the selected property of each matching option
+        // Write value now needs to set the selected property of each matching options
         selectCtrl.writeValue = function writeMultipleValue(value) {
           var items = new HashMap(value);
           forEach(element.find('option'), function(option) {
@@ -30155,8 +30155,8 @@ var selectDirective = function() {
 };
 
 
-// The option directive is purely designed to communicate the existence (or lack of)
-// of dynamically created (and destroyed) option elements to their containing select
+// The options directive is purely designed to communicate the existence (or lack of)
+// of dynamically created (and destroyed) options elements to their containing select
 // directive via its controller.
 var optionDirective = ['$interpolate', function($interpolate) {
   return {
@@ -30168,7 +30168,7 @@ var optionDirective = ['$interpolate', function($interpolate) {
         var interpolateValueFn = $interpolate(attr.value, true);
       } else {
         // If the value attribute is not defined then we fall back to the
-        // text content of the option element, which may be interpolated
+        // text content of the options element, which may be interpolated
         var interpolateTextFn = $interpolate(element.text(), true);
         if (!interpolateTextFn) {
           attr.$set('value', element.text());
@@ -30177,7 +30177,7 @@ var optionDirective = ['$interpolate', function($interpolate) {
 
       return function(scope, element, attr) {
         // This is an optimization over using ^^ since we don't want to have to search
-        // all the way to the root of the DOM for every single option element
+        // all the way to the root of the DOM for every single options element
         var selectCtrlName = '$selectController',
             parent = element.parent(),
             selectCtrl = parent.data(selectCtrlName) ||

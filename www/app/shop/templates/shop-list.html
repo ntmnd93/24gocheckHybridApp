@@ -3,8 +3,10 @@
     <a class="button button-positive" href="#/app/menu/shop/search"><i class="icon ion-ios-search"></i></a>
   </ion-nav-buttons>
 
-  <ion-nav-title class="header-logo" >
-      <img src="../../../img/iconpng/24gocheck.png"/>
+  <ion-nav-title class="header-logo">
+    <div class="logo-icon">
+      <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/MockUI/24go%20check.png"/>
+    </div>
   </ion-nav-title>
   <!--<ion-nav-buttons side="right">-->
   <!--<a class="button button-positive" href="#/app/menu/chatbox/home"><i class="ion-chatbubble-working"></i></a>-->
@@ -14,49 +16,57 @@
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
 
     <!--<ion-slide-box show-pager="false" class="home-slider" does-continue="true" auto-play="true">-->
-      <!--<ion-slide ng-repeat="slide in data.offers">-->
-        <!--<a ng-href="{{::slide.link}}">-->
-          <!--<img preload-image ng-src="{{::slide.image}}"/>-->
-        <!--</a>-->
-      <!--</ion-slide>-->
+    <!--<ion-slide ng-repeat="slide in data.offers">-->
+    <!--<a ng-href="{{::slide.link}}">-->
+    <!--<img preload-image ng-src="{{::slide.image}}"/>-->
+    <!--</a>-->
+    <!--</ion-slide>-->
     <!--</ion-slide-box>-->
 
+    <div class="slider-banner">
+      <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
+                     auto-play="true">
+        <ion-slide ng-repeat="slide in data.slides">
+          <a ng-href="{{::slide.link}}">
+            <img preload-image ng-src="{{::slide.image}}"/>
+            <!--<img preload-image ng-src="{{::slide.image}}" default-image="app/shop/images/slide.png"-->
+            <!--fallback-image="app/shop/images/slide.png"/>-->
+          </a>
+        </ion-slide>
+      </ion-slide-box>
 
-    <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
-                   auto-play="true">
-      <ion-slide ng-repeat="slide in data.slides">
-        <a ng-href="{{::slide.link}}">
-          <img preload-image ng-src="{{::slide.image}}" default-image="app/shop/images/slide.png"
-               fallback-image="app/shop/images/slide.png"/>
-        </a>
-      </ion-slide>
-    </ion-slide-box>
-
-    <div class="suggest">
-      <div class="suggest promotion">
-        <a href="#/app/menu/shop/promotion">
-          <img src="../../../img/iconpng/Sale.png"/>
-          <span>Khuyến mại</span>
-        </a>
-      </div>
-      <div class="suggest topproduct">
-        <a href="#/app/menu/shop/top">
-          <img src="../../../img/iconpng/Ban chay.png" />
-          <span>Bán chạy</span>
-        </a>
-      </div>
-      <div class="suggest trend">
-        <a href="#/app/menu/shop/trend">
-          <img src="../../../img/iconpng/xu huong.png" />
-          <span>Xu hướng</span>
-        </a>
+      <div class="suggest">
+        <div class="suggest promotion">
+          <a href="#/app/menu/shop/promotion">
+            <div class="item-promition">
+              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
+            </div>
+            <span>Khuyến mại</span>
+          </a>
+        </div>
+        <div class="suggest topproduct">
+          <a href="#/app/menu/shop/top">
+            <div class="item-topproduct">
+              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png"/>
+            </div>
+            <span>Bán chạy</span>
+          </a>
+        </div>
+        <div class="suggest trend">
+          <a href="#/app/menu/shop/trend">
+            <div class="item-trend">
+              <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png"/>
+            </div>
+            <span>Xu hướng</span>
+          </a>
+        </div>
       </div>
     </div>
+
     <category-list thumbnail="false" mode="icons"></category-list>
 
-
     <ion-list class="recent-items-list">
-      <div class="item item-divider" i18n="shop.featured_title"></div>
+      <div class="item item-divider newproduct" i18n="shop.featured_title"></div>
       <ion-slide-box show-pager="false" does-continue="true" auto-play="true">
         <ion-slide ng-repeat="item in data.featuredItems">
           <ion-item>
@@ -73,7 +83,7 @@
     <!--</button>-->
     <!--</div>-->
 
-    <div class="recent-items-list list-home" style="background-color: lightgrey" ng-class="{'row grid_mode': !grid_mode}">
+    <div class="recent-items-list list-home" style="background-color: #f7f7f7" ng-class="{'row grid_mode': !grid_mode}">
       <div class="list-home item col-50" ng-repeat="item in data.latestItems" ng-class="{'col-50' : grid_mode}">
         <item-template item="item" mode="2"></item-template>
       </div>

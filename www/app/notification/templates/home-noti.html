@@ -2,7 +2,7 @@
 
   <ion-content class="padding">
 
-    <ion-segment class="noti-segment" ng-model="categories" full="true" assertive>
+    <ion-segment style="padding: 0 70px" class="noti-segment" ng-model="categories" full="true" assertive>
       <ion-segment-button value="event">
         <span>{{'notification.title_notification_event' | i18n}}</span>
       </ion-segment-button>
@@ -13,50 +13,34 @@
 
     <div ng-switch="categories">
       <ion-list ng-switch-when="event">
-        <ion-item>
-          <p>Hùng bắt thông tin Event ở đây</p>
+        <ion-item style="background-color: #f7f7f7; border: none;">
+          <div class="large-icon-message">
+            <span style="border-radius: 70px; opacity: .5;" class="large-app-icon large-app-icon-green">
+                <i class="icon ion-ios-bell-outline"></i>
+            </span>
+            <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>
+          </div>
         </ion-item>
       </ion-list>
       <ion-list ng-switch-when="own">
-        <ion-item>
-          <p>Hùng bắt thông tin Own ở đây</p>
+        <ion-item style="background-color: #f7f7f7; border: none;">
+          <div class="large-icon-message">
+            <span style="border-radius: 70px; opacity: .5;" class="large-app-icon large-app-icon-green">
+                <i class="icon ion-ios-bell-outline"></i>
+            </span>
+            <p style="font-size: 16px; color: #45e11b;"  i18n="notification.empty_message"></p>
+          </div>
         </ion-item>
       </ion-list>
     </div>
-
   </ion-content>
-
-
-  <!--<ion-content class="padding">
-    <ion-segment class="noti-segment" ng-model="notification" full="true"  assertive>
-      <ion-segment-button value="event">
-        <span>{{'notification.title_notification_event' | i18n}}</span>
-      </ion-segment-button>
-      <ion-segment-button value="own">
-        <span>{{'notification.title_notification_own' | i18n}}</span>
-      </ion-segment-button>
-    </ion-segment>
-    <div ng-switch="notification">
-      <ion-list ng-switch-when="event">
-        <ion-item>
-          <div class="large-icon-message">
-            <span class="large-app-icon large-app-icon-red">
-                <i class="icon ion-ios-bell-outline"></i>
-            </span>
-            <p i18n="notification.empty_message"></p>
-          </div>
-        </ion-item>
-      </ion-list>
-      <ion-list ng-switch-when="own">
-        <ion-item>
-          <div class="large-icon-message">
-            <span class="large-app-icon large-app-icon-red">
-                <i class="icon ion-ios-bell-outline"></i>
-            </span>
-            <p i18n="notification.empty_message"></p>
-          </div>
-        </ion-item>
-      </ion-list>
-    </div>
-  </ion-content>-->
+  <!--<div style="text-align: left;">-->
+  <!--<img class="shop-detail-image" src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"-->
+  <!--default-image="app/shop/images/placeholder.png"-->
+  <!--fallback-image="app/shop/images/placeholder.png"/>-->
+  <!--<div style="float: right; width: 75%;">-->
+  <!--<h3><i class="icon ion-ios-bookmarks-outline">  Name Of Event</i></h3>&lt;!&ndash;ng-bind-html="item.name"&ndash;&gt;-->
+  <!--<p><i class="icon ion-ios-location-outline"></i> Description About Event</p>-->
+  <!--<p><i class="icon ion-ios-alarm-outline"></i><span> Start Date</span> - <span>End Date</span></p>-->
+  <!--</div>-->
 </ion-view>

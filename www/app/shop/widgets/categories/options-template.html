@@ -1,0 +1,7 @@
+<select>
+  <option selected>{{'shop.item_tabs_cate' | i18n}}</option>
+  <option ng-repeat="category in categories" value="{{::category.category_id}}">{{category.name}}</option>
+</select>
+<br/>
+
+<!--<select ng-options="category in categories" ng-model="{{::category.category_id}}"></select>-->

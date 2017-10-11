@@ -2,11 +2,11 @@
   <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png"
        fallback-image="app/shop/images/placeholder.png"/>
 </a>
-<div class="row detail-item-product">
+<div style="font-size: 95%;" class="row detail-item-product">
   <div style="border-top: 9px;width: 90%; margin:0 10px;">
     <div>
       <h2 ng-bind-html="item.name"></h2>
-      <span style="color:#FF4635;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+      <span style="color:#f28a53;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
       <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}
         </span>

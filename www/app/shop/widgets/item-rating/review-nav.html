@@ -1,0 +1,10 @@
+<ion-tabs>
+  <ion-tab href="#/app/menu/shop/review/{{id}}" icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose-outline">
+    <ion-nav-view name="tab-review">
+      <ion-content class="has-sub-tabs-top">
+        <item-rating item="item" ng-if="item.review_status"></item-rating>
+      </ion-content>
+    </ion-nav-view>
+  </ion-tab>
+</ion-tabs>
+

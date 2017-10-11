@@ -676,4 +676,39 @@ angular
                 }
             });
         }
+
+
+
+        // this.SearchGetProductsByCategoryId = function (category_id){
+        //   return dataService.apiSecuredPost('/product/search', { search: " ", category_id: 132, page: page, limit: 10 }).then(function (data) {
+        //     for (var i in data.products) {
+        //       if (data.products[i].special) {
+        //         var s = parseInt(data.products[i].special_clear);
+        //         var p = parseInt(data.products[i].price_clear);
+        //         data.products[i].off = Math.ceil((p - s) / p * 100);
+        //       }
+        //     }
+        //
+        //     return data;
+        //   });
+        // }
+
+      this.SearchProductsByCategoryId = function (category_id, page) {
+
+        var limit = 10;
+
+        return dataService.apiSecuredPost('/product/search', { search: " ", page: page, limit: limit, category_id: category_id, order: "DESC" }).then(function (data) {
+          for (var i in data.products) {
+            if (data.products[i].special) {
+              var s = parseInt(data.products[i].special_clear);
+              var p = parseInt(data.products[i].price_clear);
+              data.products[i].off = Math.ceil((p - s) / p * 100);
+            }
+          }
+
+          return data;
+        });
+      }
+
+
     })

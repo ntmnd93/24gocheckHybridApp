@@ -43323,7 +43323,7 @@ var SelectController =
  *      $scope.data = {
  *       singleSelect: null,
  *       multipleSelect: [],
- *       option1: 'option-1',
+ *       option1: optionss,
  *      };
  *
  *      $scope.forceUnknownOption = function() {

@@ -5875,14 +5875,14 @@ IonicModule.service('$ionicListDelegate', ionic.DelegateService([
    * @ngdoc method
    * @name $ionicListDelegate#canSwipeItems
    * @param {boolean=} canSwipeItems Set whether or not this list is able to swipe to show
-   * option buttons.
-   * @returns {boolean} Whether the list is able to swipe to show option buttons.
+   * options buttons.
+   * @returns {boolean} Whether the list is able to swipe to show options buttons.
    */
   'canSwipeItems',
   /**
    * @ngdoc method
    * @name $ionicListDelegate#closeOptionButtons
-   * @description Closes any option buttons on the list that are swiped open.
+   * @description Closes any optionss buttons on the list that are swiped open.
    */
   'closeOptionButtons'
   /**
@@ -8777,7 +8777,7 @@ IonicModule
                   '<div class="action-sheet" ng-class="{\'action-sheet-has-icons\': $actionSheetHasIcon}">' +
                     '<div class="action-sheet-group action-sheet-options">' +
                       '<div class="action-sheet-title" ng-if="titleText" ng-bind-html="titleText"></div>' +
-                      '<button class="button action-sheet-option" ng-click="buttonClicked($index)" ng-class="b.className" ng-repeat="b in buttons" ng-bind-html="b.text"></button>' +
+                      '<button class="button action-sheet-optionss" ng-click="buttonClicked($index)" ng-class="b.className" ng-repeat="b in buttons" ng-bind-html="b.text"></button>' +
                       '<button class="button destructive action-sheet-destructive" ng-if="destructiveText" ng-click="destructiveButtonClicked()" ng-bind-html="destructiveText"></button>' +
                     '</div>' +
                     '<div class="action-sheet-group action-sheet-cancel" ng-if="cancelText">' +
@@ -11033,8 +11033,8 @@ var ITEM_TPL_OPTION_BUTTONS =
 * @module ionic
 * @restrict E
 * @description
-* Creates an option button inside a list item, that is visible when the item is swiped
-* to the left by the user.  Swiped open option buttons can be hidden with
+* Creates an options button inside a list item, that is visible when the item is swiped
+* to the left by the user.  Swiped open options buttons can be hidden with
 * {@link ionic.service:$ionicListDelegate#closeOptionButtons $ionicListDelegate.closeOptionButtons}.
 *
 * Can be assigned any button class.
@@ -11047,8 +11047,8 @@ var ITEM_TPL_OPTION_BUTTONS =
 * <ion-list>
 *   <ion-item>
 *     I love kittens!
-*     <ion-option-button class="button-positive">Share</ion-option-button>
-*     <ion-option-button class="button-assertive">Edit</ion-option-button>
+*     <ion-options-button class="button-positive">Share</ion-options-button>
+*     <ion-options-button class="button-assertive">Edit</ion-options-button>
 *   </ion-item>
 * </ion-list>
 * ```
@@ -11296,14 +11296,14 @@ function keyboardAttachGetClientHeight(element) {
 *     {% raw %}<img ng-src="{{item.img}}">
 *     <h2>{{item.title}}</h2>
 *     <p>{{item.description}}</p>{% endraw %}
-*     <ion-option-button class="button-positive"
+*     <ion-options-button class="button-positive"
 *                        ng-click="share(item)">
 *       Share
-*     </ion-option-button>
-*     <ion-option-button class="button-info"
+*     </ion-options-button>
+*     <ion-options-button class="button-info"
 *                        ng-click="edit(item)">
 *       Edit
-*     </ion-option-button>
+*     </ion-options-button>
 *     <ion-delete-button class="ion-minus-circled"
 *                        ng-click="items.splice($index, 1)">
 *     </ion-delete-button>
@@ -11331,7 +11331,7 @@ function keyboardAttachGetClientHeight(element) {
 * @param show-reorder {boolean=} Whether the reorder buttons for the items in the list are
 * currently shown or hidden.
 * @param can-swipe {boolean=} Whether the items in the list are allowed to be swiped to reveal
-* option buttons. Default: true.
+* options buttons. Default: true.
 */
 IonicModule
 .directive('ionList', [

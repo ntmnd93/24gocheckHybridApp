@@ -56,7 +56,8 @@ angular.module('info.module')
             url: '/favorite',
             views: {
               'infoContent': {
-                templateUrl: 'app/info/templates/info-favorite.html'
+                templateUrl: 'app/info/templates/info-favorite.html',
+                controller: 'InfoFavCtrl'
               }
             }
           })
@@ -72,7 +73,8 @@ angular.module('info.module')
             url: '/account-info',
             views: {
               'infoContent': {
-                templateUrl: 'app/info/templates/info-account-info.html'
+                templateUrl: 'app/info/templates/info-account-info.html',
+                controller: 'InfoAccInfo'
               }
             }
           })

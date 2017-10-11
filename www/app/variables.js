@@ -12,10 +12,10 @@
     .constant('STATUSBAR_COLOR', "#387ef5")
     .constant('LANGUAGES', [
             { name: "Vietnamese", language_id: "vi-VN" },
-            { name: "English", language_id: "en-US" },
-            { name: "French", language_id: "fr-FR" },
-            { name: "Chinese", language_id: "zh-CN" },
-            { name: "Arabic", language_id: "ar-EG" }])
+            { name: "English", language_id: "en-US" }])
+            // { name: "French", language_id: "fr-FR" },
+            // { name: "Chinese", language_id: "zh-CN" },
+            // { name: "Arabic", language_id: "ar-EG" }])
     .constant('LOCAL_NOTIFICATIONS_ARRAY', [
             {
                 text: 'Come and see new arrivals and offers! Exclusive for mobile app users',

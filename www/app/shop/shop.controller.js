@@ -39,7 +39,29 @@ angular
 
     $scope.loadBanners = function () {
       ShopService.GetBanners().then(function (data) {
-        $scope.data.slides = data.main_banners;
+        // $scope.data.slides = data.main_banners;
+
+        // $scope.data = {};
+        // $scope.data.slides = [
+        //   {
+        //     "link": "http://24gocheck.com/",
+        //     "image": "http://24gocheck.com/image/catalog/24gocheck%20Icons/pic1.jpg"
+        //   }
+        // ];
+        $scope.data.slides = [
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/ip8x-685x505.png"
+          },
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/Hoa%20Qu%E1%BA%A3-685x505.png"
+          },
+          {
+            "link": "http://24gocheck.com/",
+            "image": "http://24gocheck.com/image/cache/catalog/Banner/thoi%20trang-685x505.png"
+          }
+        ];
         $scope.data.offers = data.offer_banner;
         $ionicSlideBoxDelegate.update();
       });
@@ -190,6 +212,9 @@ angular
       $scope.item.entry_review = data.entry_review;
 
       $scope.item.related = data.products;
+
+
+      $scope.item.thumb = data.thumb;
 
       $scope.item.image = data.image;
 
@@ -417,7 +442,53 @@ angular
  */
 angular
   .module('shop.module')
-  .controller('ShopSearchCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
+  .controller('ShopSearchCtrl', function ($scope, $localStorage, $rootScope, $ionicScrollDelegate, $stateParams, ShopService, CartService) {
+    $scope.selectedCat = "1";
+    $scope.page = 1;
+    $scope.cates=[];
+    $scope.endOfItems = true;
+    $scope.loadingItems = false;
+    $scope.items = [];
+    ShopService.GetCategories().then(function (data) {
+
+      $scope.cates = data.categories;
+
+
+      $ionicLoading.hide();
+    }, function (data) {
+      $ionicLoading.hide();
+    });
+
+    //==================================================================================================================
+
+    $rootScope.checking = false;
+    // alert("From Shika" +ShopService.GetCategories());
+    //==================================================================================================================
+
+  $scope.changeCategory = function (selectedCat) {
+    ShopService.SearchProductsByCategoryId(selectedCat).then(function (data) {
+      $scope.items = data.products;
+      // $scope.page++;
+      // if (data.products.length < 1)
+      //   $scope.endOfItems = true;
+      // else
+      //   $scope.endOfItems = false;
+      // $scope.loadingItems = false;
+      // $scope.$broadcast('scroll.infiniteScrollComplete');
+
+    }, function (data) {
+      // $scope.loadingItems = false;
+      // $scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+  }
+
+
+  });
+
+angular
+  .module('shop.module')
+  .controller('FilterCtrl', function ($scope, $rootScope, $ionicScrollDelegate, $stateParams, ShopService) {
+      $scope.filter = 'Xu hướng';
 
   });
 
@@ -562,7 +633,6 @@ angular
   .module('shop.module')
   .controller('OffersTopCtrl', function($scope, $localStorage, $rootScope, $stateParams, $ionicSlideBoxDelegate, ShopService){
     // $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
-    $scope.navTitle='<img class="title-image" src="images/24gocheck.png" />';
     // $scope.shop = {};
     // $scope.shop.shopName = "Công ty AlVietJS";
     // $scope.shop.location = " 169 Nguyễn Ngọc Vũ, P.Trung Hòa";

@@ -734,7 +734,7 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  * * `stagger` - A numeric time value representing the delay between successively animated elements
  * ({@link ngAnimate#css-staggering-animations Click here to learn how CSS-based staggering works in ngAnimate.})
  * * `staggerIndex` - The numeric index representing the stagger item (e.g. a value of 5 is equal to the sixth item in the stagger; therefore when a
- *   `stagger` option value of `0.1` is used then there will be a stagger delay of `600ms`)
+ *   `stagger` options value of `0.1` is used then there will be a stagger delay of `600ms`)
  * * `applyClassesEarly` - Whether or not the classes being added or removed will be used when detecting the animation. This is set by `$animate` when enter/leave/move animations are fired to ensure that the CSS classes are resolved in time. (Note that this will prevent any transitions from occurring on the classes being added and removed.)
  * * `cleanupStyles` - Whether or not the provided `from` and `to` styles will be removed once
  *    the animation is closed. This is useful for when the styles are used purely for the sake of
@@ -1272,7 +1272,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           });
         }
 
-        // the reason why we have this option is to allow a synchronous closing callback
+        // the reason why we have this options is to allow a synchronous closing callback
         // that is fired as SOON as the animation ends (when the CSS is removed) or if
         // the animation never takes off at all. A good example is a leave animation since
         // the element must be removed just after the animation is over or else the element
@@ -2564,7 +2564,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
               event = newAnimation.event = existingAnimation.event;
               options = mergeAnimationDetails(element, existingAnimation, newAnimation);
 
-              //we return the same runner since only the option values of this animation will
+              //we return the same runner since only the options values of this animation will
               //be fed into the `existingAnimation`.
               return existingAnimation.runner;
             }

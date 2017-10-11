@@ -1,20 +1,28 @@
 ﻿<ion-scroll direction="x">
-    <!--<div class="row home-category-grid-icons" id="iconSlide">-->
-        <!--<a class="col" ng-repeat="category in categories" ng-href="#/app/menu/shop/category/{{::category.category_id}}">-->
-            <!--<div class="">-->
-                <!--<img ng-src="{{category.image}}" style="vertical-align:middle;" />-->
-                <!--&lt;!&ndash;<span ng-bind-html="category.name"></span>&ndash;&gt;-->
-            <!--</div>-->
-          <!--</a>-->
-    <!--</div>-->
+  <!--<div class="row home-category-grid-icons" id="iconSlide">-->
+  <!--<a class="col" ng-repeat="category in categories" ng-href="#/app/menu/shop/category/{{::category.category_id}}">-->
+  <!--<div class="">-->
+  <!--<img ng-src="{{category.image}}" style="vertical-align:middle;" />-->
+  <!--&lt;!&ndash;<span ng-bind-html="category.name"></span>&ndash;&gt;-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
 
   <ul class="row home-category-grid-icons" id="iconSlide" style="">
-      <li>
-        <a class="col" ng-repeat="category in categories" ng-href="#/app/menu/shop/category/{{::category.category_id}}">
-            <img ng-src="{{category.image}}" style="vertical-align:middle;" />
-            <span ng-bind-html="category.name"></span>
-        </a>
-      </li>
+    <li>
+
+      <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col" ng-repeat="category in categories" ng-href="#/app/menu/shop/category/{{::category.category_id}}">
+        <div class="parent-background" style="background: url('{{category.image}}');margin-right: 0; margin-left: 0;max-width: 120px;">
+          <div class="background-opacity">
+            <!--<img ng-src="{{category.image}}" style="vertical-align:middle;"/>-->
+            <div class="cat-name">
+              <span ng-bind-html="category.name"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </li>
   </ul>
 </ion-scroll>
 
