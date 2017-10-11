@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sample.module')
+angular.module('option.module')
   .config(function config($stateProvider) {
     $stateProvider
       .state('app.menu.option', {
@@ -22,6 +22,7 @@ angular.module('sample.module')
             templateUrl: 'app/option/templates/home-opt.html',
             controller: 'OptionCtrl'
           }
-        }
+        },
+        params: { redirect: null }
       })
   });

@@ -51,9 +51,11 @@
   "item_view_button" :  "View",
   "item_add_to_wishlist_button" :  "Add to Wishlist",
 
-  "offer_promotion":"For Sales",
-  "offer_top":"Top Product",
-  "offer_trend":"Trending"
-
+  "offer_promotion":"Offer promotion",
+  "featured":"Featured Product",
+  "offer_trend":"Trending",
+  "best_sellers": "Best sellers",
+  "title_shop_name": "Shop details",
+  "title_category": "Categories"
 
 }

@@ -62,7 +62,7 @@ $stateProvider
     })
 * ```
 */
-var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-image', 'ionic-ratings', 'ngLocalize', 'ngLocalize.InstalledLanguages', 'ngLocalize.Events', 'ionic.service.core', 'ngStorage', 'ngMessages', 'shop.module', 'offers.module', 'cart.module', 'info.module', 'payments.module', 'auth.module', 'notification.module', 'chatbox.module', 'option.module'])
+var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-image', 'ionic-ratings', 'ngLocalize', 'ngLocalize.InstalledLanguages', 'ngLocalize.Events', 'ionic.service.core', 'ngStorage', 'ngMessages', 'shop.module', 'offers.module', 'cart.module', 'info.module', 'payments.module', 'auth.module', 'notification.module', 'option.module'])
     .run(function ($ionicPlatform, $ionicPopup, $ionicLoading, $localStorage, $ionicNavBarDelegate, $ionicScrollDelegate, $rootScope, $timeout, $state, notificationService, updateService, analyticsService, intercomService) {
         $ionicPlatform.ready(function () {
 
@@ -81,24 +81,24 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
             }
 
             // init push notification
-            $timeout(function () {
-                pushInit();
-            }, 2000);
+            // $timeout(function () {
+            //     pushInit();
+            // }, 2000);
 
             // google analytics
-            analyticsService.init();
+            // analyticsService.init();
 
             // local notifications
-            notificationService.init();
+            // notificationService.init();
 
             // intercom service
             intercomService.init();
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
-            if (cordova.platformId === 'ios' && window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.disableScroll(true);
-            }
+            // if (cordova.platformId === 'ios' && window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+            //     cordova.plugins.Keyboard.disableScroll(true);
+            // }
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
@@ -109,6 +109,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova', 'angular-preload-
                 event.stopPropagation();
                 $ionicLoading.hide();
             });
+            
         });
 
         $rootScope.$on('$ionicView.enter', function () {

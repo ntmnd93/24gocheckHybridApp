@@ -24,7 +24,7 @@
     <!--</ion-slide-box>-->
 
     <div class="slider-banner">
-      <ion-slide-box id="example-elastic-header" show-pager="false" class="home-slider" does-continue="true"
+      <ion-slide-box id="example-elastic-header" show-pager="true" class="home-slider" does-continue="true"
                      auto-play="true">
         <ion-slide ng-repeat="slide in data.slides">
           <a ng-href="{{::slide.link}}">
@@ -41,7 +41,7 @@
             <div class="item-promition">
               <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Sale-100x100.png"/>
             </div>
-            <span>Khuyến mại</span>
+            <span i18n="shop.offer_promotion"></span>
           </a>
         </div>
         <div class="suggest topproduct">
@@ -49,7 +49,7 @@
             <div class="item-topproduct">
               <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/Ban%20chay-100x100.png"/>
             </div>
-            <span>Bán chạy</span>
+            <span i18n="shop.best_sellers"></span>
           </a>
         </div>
         <div class="suggest trend">
@@ -57,7 +57,7 @@
             <div class="item-trend">
               <img src="http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/xu%20huong-100x100.png"/>
             </div>
-            <span>Xu hướng</span>
+            <span i18n="shop.offer_trend"></span>
           </a>
         </div>
       </div>

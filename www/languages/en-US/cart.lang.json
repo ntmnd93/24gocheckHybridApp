@@ -25,15 +25,15 @@
   "invoice_address" :  "Address",
 
   "error_firstname_required" :  "Please enter your first name",
-  "error_lastname_required" :  "Please enter your first name",
+  "error_lastname_required" :  "Please enter your last name",
   "error_email_required" :  "Please enter your email address",
   "error_email_invalid" :  "Please enter a valid email address",
   "error_telephone_required" :  "Please enter your telephone number",
   "error_address_1_required" :  "Please enter your address line 1",
   "error_city_required" :  "Please enter your city",
   "error_postal_code_required" :  "Please enter your postal code",
-  "error_postal_code_minlength" :  "Postal code is a 5 digit number",
-  "error_postal_code_maxlength" :  "Postal code is a 5 digit number",
+  "error_postal_code_minlength" :  "Postal code is a 5 or 6 digit number",
+  "error_postal_code_maxlength" :  "Postal code is a 5 or 6 digit number",
   "error_country_id_required" :  "Please enter your country",
   "error_zone_id_required": "Please enter your region or state",
 

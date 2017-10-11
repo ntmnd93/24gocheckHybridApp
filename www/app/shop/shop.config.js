@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('shop.module')
-  .config(function config($stateProvider) {
+  .config(function config($stateProvider , ) {
     $stateProvider
       .state('app.menu.shop', {
         url: '/shop',
@@ -95,6 +95,8 @@ angular.module('shop.module')
           }
         }
       })
+	  
+	  
   });
 
 /**

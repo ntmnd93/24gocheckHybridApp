@@ -6,17 +6,7 @@
 /*HOMEPAGE CUSTOM STSYLE*/
 /*==============================================================================*/
 
-/*.ion-ios-star:before {*/
-  /*!*content: none;*!*/
-  /*background-repeat: no-repeat;*/
-  /*background-image: url('http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/star-gold-100x100.png');*/
-/*}*/
 
-/*.ion-ios-star-outline:before {*/
-  /*!*content: none;*!*/
-  /*background-repeat: no-repeat;*/
-  /*background-image: url('http://24gocheck.com/image/cache/catalog/24gocheck%20Icons/star-white-100x100.png');*/
-/*}*/
 
 .icon-star-white {
   background-repeat: no-repeat;
@@ -266,11 +256,38 @@
 
 .home-slider .slider-slide img {
   height: 100%;
-  max-height: 175px;
+  max-height: 130px;
   min-height: 100px;
 }
 
+#example-elastic-header .slider-paper {
+  bottom:12px !important;
+}
 
+.cart-item-total {
+  /*color: #ff5c00;*/
+}
+.slider-pager {
+  position: absolute !important;
+  bottom: 12px !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 15px !important;
+  text-align: center !important;
+}
+
+.slider-pager .slider-pager-page {
+  color: #a8aca9 !important;
+}
+
+.icon.ion-record {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  vertical-align: baseline !important;
+  font: inherit !important;
+  font-size: 60% !important;
+}
 .searchTab{
   margin: 0 2%;
 }
@@ -505,3 +522,4 @@ hr {
 ion-infinite-scroll{
   height: 0px;
 }
+

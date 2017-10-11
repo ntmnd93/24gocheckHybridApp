@@ -52,7 +52,9 @@
   "item_add_to_wishlist_button" :  "Thêm vào danh sách",
 
   "offer_promotion":"Khuyến Mại",
-  "offer_top":"Nổi Bật",
+  "featured":"Nổi Bật",
   "offer_trend":"Xu Hướng",
-  "title_shop_name": "Chi tiết cửa hàng"
+  "best_sellers": "Bán chạy",
+  "title_shop_name": "Chi tiết cửa hàng",
+  "title_category": "Danh mục"
 }

@@ -8,35 +8,41 @@
         <div class="padding text-center">
           <ion-slide-box id="item-elastic-header">
             <ion-slide>
-              <div style="width: 100%;"><img style="width: 60%" preload-image ng-src="{{item.thumb}}"
+              <div style="width: 100%;"><img style="width: 80%" preload-image ng-src="{{item.thumb}}"
                                              default-image="app/shop/images/placeholder.png"
                                              fallback-image="app/shop/images/placeholder.png"/></div>
             </ion-slide>
           </ion-slide-box>
         </div>
         <div class="detail-content">
+
           <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">
             <h2 ng-bind-html="item.name"></h2></a>
           <p>
-            <span style="color:#f28a53; font-size: 18px"
+            <span style="color:#ff5c00; font-size: 18px"
                   ng-class="{'has-special' : item.special}">{{::item.price}}</span>
             <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
           </p>
-          <hr/>
-          <div style="border-top: 9px;">
-            <img class="icon-image"
-                 src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
-                 default-image="app/shop/images/placeholder.png"
-                 fallback-image="app/shop/images/placeholder.png"/>
-            <h4>Cong ty AlvietJS</h4>
-            <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
-                           ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-
-          </div>
         </div>
 
-        <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;"  ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
+        <div style="border-top: 9px;">
+          <img class="icon-image"
+               preload-image ng-src="{{item.thumb}}"
+               default-image="app/shop/images/placeholder.png"
+               fallback-image="app/shop/images/placeholder.png"/>
+          <h4 ng-bind-html="item.firstname"><h4>
+          <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"
+                         ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+
+        </div>
+            <div style="padding-left: 10px;">
+              <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> {{item.telephone}}</a><br/>
+              <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.location}}</a><br/>
+            </div>
+        </div>
+
+        <div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;" ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
           <div class="buttons-detail">
             <button style="background-color: #FA3E16; color: whitesmoke;"
                     class="button-details-product icon ion-ios-cart"
@@ -44,8 +50,9 @@
           </div>
 
 
-          <a style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
-             href="tel: +842439192192" class="button-details-product">
+          <a
+            style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"
+            href="tel: {{item.telephone}}" class="button-details-product">
             <span class="icon ion-android-call" i18n="shop.item_button_call"></span>
           </a>
 
@@ -55,170 +62,164 @@
           </a>
 
           <!--Tab Review-->
-            <ion-tab hidden="true" href="#/app/menu/shop/review/{{id}}"  icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose-outline">
-              <ion-nav-view name="tab-review">
-                <ion-content class="has-sub-tabs-top">
-                  <item-rating item="item" ng-if="item.review_status"></item-rating>
-                </ion-content>
-              </ion-nav-view>
-            </ion-tab>
+          <ion-tab hidden="true" href="#/app/menu/shop/review/{{id}}" icon-off="ion-ios-compose-outline"
+                   icon-on="ion-ios-compose-outline">
+            <ion-nav-view name="tab-review">
+              <ion-content class="has-sub-tabs-top">
+                <item-rating item="item" ng-if="item.review_status"></item-rating>
+              </ion-content>
+            </ion-nav-view>
+          </ion-tab>
 
         </div>
         <form name="shop.shopItemForm" enctype="multipart/form-data">
 
         </form>
-        <div id="map"></div>
-        <p style="font-size: 14px; padding-left: 10px;" ng-bind-html="item.description"></p>
-        <div style="padding-left: 10px;">
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/world_icon.png"></img>{{item.website}}</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> 024 39 192 192</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.address}}</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"></img>{{item.facebook}}</a><br/>
-          <a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"></img>{{item.mail}}</a><br/>
-        </div>
+         <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+        <div id="map" data-tap-disabled="true"></div>
+		<!-- <img ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{item.latitude}},{{item.longitude}}&markers={{item.latitude}},{{item.longitude}}&zoom=17&size=400x250&key=AIzaSyANM2U38gGBxIm4wowUMoOvizBD1RBDydg" style="width: 100%; height: auto;"> -->
       </ion-content>
     </ion-nav-view>
   </ion-pane>
 </ion-view>
 
 
-
 <!--<ion-view view-title="{{item.name}}">-->
-  <!--&lt;!&ndash;<ion-nav-buttons side="right">&ndash;&gt;-->
-    <!--&lt;!&ndash;<a class="button button-positive" ng-click="share()">&ndash;&gt;-->
-      <!--&lt;!&ndash;<i class="icon ion-ios-upload-outline"></i>&ndash;&gt;-->
-    <!--&lt;!&ndash;</a>&ndash;&gt;-->
-  <!--&lt;!&ndash;</ion-nav-buttons>&ndash;&gt;-->
+<!--&lt;!&ndash;<ion-nav-buttons side="right">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="button button-positive" ng-click="share()">&ndash;&gt;-->
+<!--&lt;!&ndash;<i class="icon ion-ios-upload-outline"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</ion-nav-buttons>&ndash;&gt;-->
 
 
-  <!--<ion-pane class="pane has-tabs-top">-->
-    <!--<ion-tabs id="productdetail" delegate-handle="product-tabs" class="sub-tab-top tabs-color-active-standard tabs-positive tabs-icon-left">-->
-      <!--<ion-tab href="#/app/menu/shop/item/{{id}}">-->
-        <!--<ion-nav-view name="">-->
-          <!--<ion-content elastic-header="item-elastic-header" delegate-handle="example-scroller" class="has-sub-tabs-top">-->
-            <!--<div class="padding text-center">-->
-              <!--<ion-slide-box id="item-elastic-header">-->
-                <!--<ion-slide>-->
-                  <!--<div style="width: 100%;"><img style="width: 60%" preload-image ng-src="{{item.thumb}}"-->
-                                                 <!--default-image="app/shop/images/placeholder.png"-->
-                                                 <!--fallback-image="app/shop/images/placeholder.png"/></div>-->
-                <!--</ion-slide>-->
-              <!--</ion-slide-box>-->
-            <!--</div>-->
+<!--<ion-pane class="pane has-tabs-top">-->
+<!--<ion-tabs id="productdetail" delegate-handle="product-tabs" class="sub-tab-top tabs-color-active-standard tabs-positive tabs-icon-left">-->
+<!--<ion-tab href="#/app/menu/shop/item/{{id}}">-->
+<!--<ion-nav-view name="">-->
+<!--<ion-content elastic-header="item-elastic-header" delegate-handle="example-scroller" class="has-sub-tabs-top">-->
+<!--<div class="padding text-center">-->
+<!--<ion-slide-box id="item-elastic-header">-->
+<!--<ion-slide>-->
+<!--<div style="width: 100%;"><img style="width: 60%" preload-image ng-src="{{item.thumb}}"-->
+<!--default-image="app/shop/images/placeholder.png"-->
+<!--fallback-image="app/shop/images/placeholder.png"/></div>-->
+<!--</ion-slide>-->
+<!--</ion-slide-box>-->
+<!--</div>-->
 
-            <!--<div class="list white-background">-->
-
-
-              <!--<div class="detail-content">-->
-                <!--<a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">-->
-                  <!--<h2 ng-bind-html="item.name"></h2></a>-->
-                <!--<p>-->
-                  <!--<span style="color:#f28a53; font-size: 18px" ng-class="{'has-special' : item.special}">{{::item.price}}</span>-->
-                  <!--<span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">-->
-                    <!--<i class="icon ion-iphone"></i> {{::item.mobile_special}}-->
-                  <!--</span>-->
-                <!--</p>-->
-                <!--<hr/>-->
-                <!--<div style="border-top: 9px;">-->
-                  <!--<img class="icon-image"-->
-                       <!--src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"-->
-                       <!--default-image="app/shop/images/placeholder.png"-->
-                       <!--fallback-image="app/shop/images/placeholder.png"/>-->
-                  <!--<h4>Cong ty AlvietJS</h4>-->
-                  <!--<ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"-->
-                                 <!--ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
-
-                <!--</div>-->
-              <!--</div>-->
-
-              <!--<div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;"-->
-                   <!--ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">-->
-                <!--<div class="buttons-detail">-->
-                  <!--<div class="buttons">-->
-                    <!--<button class="button" ng-click="addToCart()" i18n="shop.item_button_add_to_cart"></button>-->
-                  <!--</div>-->
-                <!--</div>-->
-                <!--<a-->
-                  <!--style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"-->
-                  <!--href="tel: +842439192192" class="button-details-product">-->
-                  <!--<span class="icon ion-android-call" i18n="shop.item_button_call"></span>-->
-                <!--</a>-->
-
-                <!--<a style="background-color:#27FD6A; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px;"-->
-                <!--href="#/app/menu/shop/review/{{id}}" class="button-details-product">-->
-                <!--<span class="icon ion-chatbox-working" i18n="shop.item_button_review"></span>-->
-                <!--</a>-->
-
-              <!--</div>-->
+<!--<div class="list white-background">-->
 
 
-              <!--<div class="item item-divider" ng-if="item.attribure_groups && item.attribure_groups.length > 0" i18n="shop.item_specification"></div>-->
-              <!--<div ng-if="item.attribure_groups && item.attribure_groups.length > 0" ng-class="{'seemore' : showLessSpec}" class="padding" ng-init="showLessSpec = true">-->
-                <!--<div>-->
-                  <!--<p>-->
-                  <!--<table class="attribute-table" ng-repeat="attribure_group in item.attribure_groups">-->
-                    <!--<thead> <tr> <td colspan="2"><strong>{{attribure_group.name}}</strong></td> </tr> </thead>-->
-                    <!--<tbody>-->
-                    <!--<tr ng-repeat="attribute in attribure_group.attribute"> <td>{{attribute.name}}</td> <td>{{attribute.text}}</td> </tr>-->
-                    <!--</tbody>-->
-                  <!--</table>-->
-                  <!--</p>-->
-                <!--</div>-->
-              <!--</div>-->
+<!--<div class="detail-content">-->
+<!--<a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}">-->
+<!--<h2 ng-bind-html="item.name"></h2></a>-->
+<!--<p>-->
+<!--<span style="color:#f28a53; font-size: 18px" ng-class="{'has-special' : item.special}">{{::item.price}}</span>-->
+<!--<span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">-->
+<!--<i class="icon ion-iphone"></i> {{::item.mobile_special}}-->
+<!--</span>-->
+<!--</p>-->
+<!--<hr/>-->
+<!--<div style="border-top: 9px;">-->
+<!--<img class="icon-image"-->
+<!--src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"-->
+<!--default-image="app/shop/images/placeholder.png"-->
+<!--fallback-image="app/shop/images/placeholder.png"/>-->
+<!--<h4>Cong ty AlvietJS</h4>-->
+<!--<ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap"-->
+<!--ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>-->
 
-              <!--<button ng-if="item.attribure_groups && item.attribure_groups.length > 0" class="button button-positive button-small button-outline button-full button-no-border" ng-click="showLessSpec = !showLessSpec">-->
-                <!--<span ng-if="showLessSpec" i18n="shop.item_view_all"></span>-->
-                <!--<span ng-if="!showLessSpec" i18n="shop.item_view_less"></span>-->
-              <!--</button>-->
+<!--</div>-->
+<!--</div>-->
 
-              <!--<form name="shop.shopItemForm" enctype="multipart/form-data">-->
+<!--<div class="navigation-buttons" style="display: inline-flex; width: 100%; margin-top: 10px;"-->
+<!--ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">-->
+<!--<div class="buttons-detail">-->
+<!--<div class="buttons">-->
+<!--<button class="button" ng-click="addToCart()" i18n="shop.item_button_add_to_cart"></button>-->
+<!--</div>-->
+<!--</div>-->
+<!--<a-->
+<!--style="background-color:#5A87FF; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px; margin-left: 2px; margin-right: 10px;"-->
+<!--href="tel: +842439192192" class="button-details-product">-->
+<!--<span class="icon ion-android-call" i18n="shop.item_button_call"></span>-->
+<!--</a>-->
 
-              <!--</form>-->
+<!--<a style="background-color:#27FD6A; color: whitesmoke; width: 30%; border-radius: 5px; padding-top: 2px;"-->
+<!--href="#/app/menu/shop/review/{{id}}" class="button-details-product">-->
+<!--<span class="icon ion-chatbox-working" i18n="shop.item_button_review"></span>-->
+<!--</a>-->
 
-              <!--&lt;!&ndash;<ion-slide-box show-pager="false">&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-slide ng-repeat="item in item.related" class="related">&ndash;&gt;-->
-                  <!--&lt;!&ndash;<a class="row" href="#/app/menu/shop/item/{{item.product_id}}">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="col related-items-image">&ndash;&gt;-->
-                      <!--&lt;!&ndash;<img ng-src="{{item.thumb}}" />&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="col-60 related-items-details">&ndash;&gt;-->
-                      <!--&lt;!&ndash;<div ng-bind-html="::item.name"></div>&ndash;&gt;-->
-                      <!--&lt;!&ndash;<p>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<span ng-if="item.special">{{item.special}}</span>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<span ng-class="{'has-special' : item.special}">{{item.price}}</span>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<span class="badge badge-assertive" ng-if="item.off" i18n="shop.item_page_off" data-percent="{{item.off}}"></span>&ndash;&gt;-->
-                      <!--&lt;!&ndash;</p>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                  <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                <!--&lt;!&ndash;</ion-slide>&ndash;&gt;-->
-              <!--&lt;!&ndash;</ion-slide-box>&ndash;&gt;-->
-            <!--</div>-->
+<!--</div>-->
 
-            <!--<div id="map"></div>-->
-            <!--<p style="font-size: 14px; padding-left: 10px;" ng-bind-html="item.description"></p>-->
-            <!--<div style="padding-left: 10px;">-->
-              <!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/world_icon.png"></img>{{item.website}}</a><br/>-->
-              <!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> 024-->
-                <!--39 192 192</a><br/>-->
-              <!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.address}}</a><br/>-->
-              <!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"></img>{{item.facebook}}</a><br/>-->
-              <!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"></img>{{item.mail}}</a><br/>-->
-            <!--</div>-->
 
-          <!--</ion-content>-->
-        <!--</ion-nav-view>-->
+<!--<div class="item item-divider" ng-if="item.attribure_groups && item.attribure_groups.length > 0" i18n="shop.item_specification"></div>-->
+<!--<div ng-if="item.attribure_groups && item.attribure_groups.length > 0" ng-class="{'seemore' : showLessSpec}" class="padding" ng-init="showLessSpec = true">-->
+<!--<div>-->
+<!--<p>-->
+<!--<table class="attribute-table" ng-repeat="attribure_group in item.attribure_groups">-->
+<!--<thead> <tr> <td colspan="2"><strong>{{attribure_group.name}}</strong></td> </tr> </thead>-->
+<!--<tbody>-->
+<!--<tr ng-repeat="attribute in attribure_group.attribute"> <td>{{attribute.name}}</td> <td>{{attribute.text}}</td> </tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
 
-      <!--&lt;!&ndash;Tab Review&ndash;&gt;-->
-      <!--<ion-tab href="#/app/menu/shop/review/{{id}}"  icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose-outline">-->
-        <!--<ion-nav-view name="tab-review">-->
-          <!--<ion-content class="has-sub-tabs-top">-->
-            <!--<item-rating item="item" ng-if="item.review_status"></item-rating>-->
-          <!--</ion-content>-->
-        <!--</ion-nav-view>-->
-      <!--</ion-tab>-->
+<!--<button ng-if="item.attribure_groups && item.attribure_groups.length > 0" class="button button-positive button-small button-outline button-full button-no-border" ng-click="showLessSpec = !showLessSpec">-->
+<!--<span ng-if="showLessSpec" i18n="shop.item_view_all"></span>-->
+<!--<span ng-if="!showLessSpec" i18n="shop.item_view_less"></span>-->
+<!--</button>-->
 
-    <!--</ion-tabs>-->
-  <!--</ion-pane>-->
+<!--<form name="shop.shopItemForm" enctype="multipart/form-data">-->
+
+<!--</form>-->
+
+<!--&lt;!&ndash;<ion-slide-box show-pager="false">&ndash;&gt;-->
+<!--&lt;!&ndash;<ion-slide ng-repeat="item in item.related" class="related">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="row" href="#/app/menu/shop/item/{{item.product_id}}">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col related-items-image">&ndash;&gt;-->
+<!--&lt;!&ndash;<img ng-src="{{item.thumb}}" />&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-60 related-items-details">&ndash;&gt;-->
+<!--&lt;!&ndash;<div ng-bind-html="::item.name"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>&ndash;&gt;-->
+<!--&lt;!&ndash;<span ng-if="item.special">{{item.special}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;<span ng-class="{'has-special' : item.special}">{{item.price}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;<span class="badge badge-assertive" ng-if="item.off" i18n="shop.item_page_off" data-percent="{{item.off}}"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</ion-slide>&ndash;&gt;-->
+<!--&lt;!&ndash;</ion-slide-box>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div id="map"></div>-->
+<!--<p style="font-size: 14px; padding-left: 10px;" ng-bind-html="item.description"></p>-->
+<!--<div style="padding-left: 10px;">-->
+<!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/world_icon.png"></img>{{item.website}}</a><br/>-->
+<!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png"></img> 024-->
+<!--39 192 192</a><br/>-->
+<!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png"></img>{{item.address}}</a><br/>-->
+<!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/facebook_icon.png"></img>{{item.facebook}}</a><br/>-->
+<!--<a><img class="img-icon" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/envelop_icon.png"></img>{{item.mail}}</a><br/>-->
+<!--</div>-->
+
+<!--</ion-content>-->
+<!--</ion-nav-view>-->
+
+<!--&lt;!&ndash;Tab Review&ndash;&gt;-->
+<!--<ion-tab href="#/app/menu/shop/review/{{id}}"  icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose-outline">-->
+<!--<ion-nav-view name="tab-review">-->
+<!--<ion-content class="has-sub-tabs-top">-->
+<!--<item-rating item="item" ng-if="item.review_status"></item-rating>-->
+<!--</ion-content>-->
+<!--</ion-nav-view>-->
+<!--</ion-tab>-->
+
+<!--</ion-tabs>-->
+<!--</ion-pane>-->
 
 <!--</ion-view>-->
 

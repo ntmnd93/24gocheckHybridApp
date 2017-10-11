@@ -25,4 +25,13 @@ angular.module('chatbox.module')
         },
         params: { redirect: null }
       })
+      // .state('app.menu.chatbox.home', {
+      //   url: '/home',
+      //   views: {
+      //     'chatboxContent': {
+      //       templateUrl: 'app/cart/templates/home-chatbox.html',
+      //       controller: 'ChatBoxCtrl'
+      //     }
+      //   }
+      // })
   });

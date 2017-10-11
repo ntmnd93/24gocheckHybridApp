@@ -35,7 +35,7 @@
 
 
               <label class="item item-input item-select">
-                <div class="input-label" i18n="modals.register_country"></div>
+                <div class="input-label" i18n="shop.title_category"></div>
                 <select ng-model="selectedCat" ng-change="changeCategory(selectedCat)">
                   <option ng-repeat="category in cates"
                           ng-selected="selectedCat == category.category_id"
@@ -43,12 +43,12 @@
                   </option>
                 </select>
               </label>
-              <p>Selected Category {{selectedCat}}</p>
+              <!--<p>Selected Category {{selectedCat}}</p>-->
             </div>
             <div class="list">
               <div ng-repeat="item in items" class="item-product"
                    style="margin-bottom: 10px; border-radius: 5px; padding: 5px">
-                <a class="row" href="#" style="height: 120px; width: 100%">
+                <a class="row" href="#/app/menu/shop/item/{{::item.product_id}}" style="height: 120px; width: 100%">
                   <div class="col-35">
                     <img preload-image class="full-image" ng-src="{{item.thumb}}"
                          default-image="app/shop/images/placeholder.png"
@@ -58,10 +58,10 @@
                   </div>
                   <div style="width: 70%;" class="row detail-item-product">
                     <div style="border-top: 9px;width: 90%; margin:0 10px;">
-                      <div>
+                      <div  style="border-bottom: solid 1px #a9a6a6;">
                         <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
                             ng-bind-html="item.name"></h2>
-                        <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                        <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                         <span ng-if="item.special != item.mobile_special && item.mobile_special"
                               class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}
@@ -69,13 +69,12 @@
                         <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
                               data-percent="{{item.off}}"></span>
                       </div>
-                      <hr style="width: 100%;"/>
                       <div>
                         <img style="margin-top: 5px; height: 25px;" class="icon-image"
                              src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
                              default-image="app/shop/images/placeholder.png"
                              fallback-image="app/shop/images/placeholder.png"/>
-                        <div style="margin-top: -10px;">Cong ty AlvietJS</div>
+                        <div>Cong ty AlvietJS</div>
                         <ionic-ratings class="col-33" style="font-size: 12px; white-space: nowrap; margin-top: -5px;"
                                        ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
                         <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
@@ -128,7 +127,7 @@
             <div class="list">
               <div ng-repeat="item in data.latestItems" class="item-product"
                    style="margin-bottom: 10px; border-radius: 5px; padding: 5px">
-                <a class="row" href="#" style="height: 120px; width: 100%">
+                <a class="row" href="#/app/menu/shop/item/{{::item.product_id}}" style="height: 120px; width: 100%">
                   <div class="col-35">
                     <img preload-image class="full-image" ng-src="{{item.thumb}}"
                          default-image="app/shop/images/placeholder.png"
@@ -138,10 +137,10 @@
                   </div>
                   <div style="width: 70%;" class="row detail-item-product">
                     <div style="border-top: 9px;width: 90%; margin:0 10px;">
-                      <div>
+                      <div  style="border-bottom: solid 1px #a9a6a6;">
                         <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
                             ng-bind-html="item.name"></h2>
-                        <span style="color:#dd978f;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+                        <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
                         <span ng-if="item.special != item.mobile_special && item.mobile_special"
                               class="mobile-offer-items">
                             <i class="icon ion-iphone"></i> {{::item.mobile_special}}
@@ -149,13 +148,12 @@
                         <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
                               data-percent="{{item.off}}"></span>
                       </div>
-                      <hr style="width: 100%;"/>
                       <div>
                         <img style="margin-top: 5px; height: 25px;" class="icon-image"
                              src="http://alvietjs.com/wp-content/uploads/2016/05/photo_2017-07-01_11-18-59-1.jpg"
                              default-image="app/shop/images/placeholder.png"
                              fallback-image="app/shop/images/placeholder.png"/>
-                        <div style="margin-top: -10px;">Cong ty AlvietJS</div>
+                        <div>Cong ty AlvietJS</div>
                         <ionic-ratings class="col-33" style="font-size: 12px; white-space: nowrap; margin-top: -5px;"
                                        ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
                         <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
