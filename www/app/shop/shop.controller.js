@@ -154,7 +154,7 @@ angular
  
       function initialize() {
         var myLatlng = new google.maps.LatLng( $scope.item.latitude, $scope.item.longitude);
-        
+         
         var mapOptions = {
           center: myLatlng,
           zoom: 17,
@@ -184,6 +184,10 @@ angular
         $scope.map = map;
       }
       google.maps.event.addDomListener(window, 'load', initialize);
+
+       $scope.navigate = function() {
+      launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude]);
+    }
       
       $scope.centerOnMe = function() {
         if(!$scope.map) {
@@ -200,7 +204,10 @@ angular
           var myitemlatlng = new google.maps.LatLng($scope.item.latitude, $scope.item.longitude);
           $scope.calcRoute(mylatlng, myitemlatlng);
           $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          $scope.loading.hide();
+           launchnavigator.navigate([ $scope.item.latitude, $scope.item.longitude], {
+            start: [pos.coords.latitude, pos.coords.longitude]
+        });
+          // $scope.loading.hide();
         }, function(error) {
           alert('Unable to get location: ' + error.message);
         });
@@ -313,6 +320,7 @@ angular
       $scope.item_cache.items[$stateParams.id] = $scope.item;
 
       $ionicSlideBoxDelegate.update();
+      initialize();
       $timeout(function () {
         $ionicLoading.hide();
       }, 500);
@@ -700,18 +708,39 @@ angular
       });
     }
 
+// <<<<<<< HEAD
+    $scope.loadLatest = function (refresh) {
+      if ($scope.loadingLatest) {
+        return;
+      }
 
-    ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+      $scope.loadingLatest = true;
+      $scope.data.latestItems = $scope.data.latestItems || [];
+
+      ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
+        if (refresh) {
+          $scope.data.latestItems = data.products;
+          $scope.data.latestPage = 1;
+        } else {
+          if ($scope.data.latestPage == 1) {
+            $scope.data.latestItems = [];
+          }
+
+          $scope.data.latestItems = $scope.data.latestItems.concat(data.products);
+          $scope.data.latestPage++;
+// =======
+//     ShopService.GetLatestProducts($scope.data.latestPage).then(function (data) {
       
-       $scope.item = {};
- $scope.item.firstname = data.separate_u_name;
+//        $scope.item = {};
+//  $scope.item.firstname = data.separate_u_name;
 
-      if (refresh) {
-        $scope.data.latestItems = data.products;
-        $scope.data.latestPage = 1;
-      } else {
-        if ($scope.data.latestPage == 1) {
-          $scope.data.latestItems = [];
+//       if (refresh) {
+//         $scope.data.latestItems = data.products;
+//         $scope.data.latestPage = 1;
+//       } else {
+//         if ($scope.data.latestPage == 1) {
+//           $scope.data.latestItems = [];
+// >>>>>>> fix map
         }
         if (data.products && data.products.length < 1)
           $scope.endOfRLatestItems = true;

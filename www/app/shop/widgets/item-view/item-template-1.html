@@ -12,8 +12,8 @@
   <a analytics-click="Detail Shop" href="#/app/menu/shop/detail/{{::item.shop_id}}"><h2
     ng-bind-html="item.shop_name"></h2></a>
   <p>
-            <span style="color:#ff5c00; font-size: 16px"
-                  ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
+    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
     <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-items">
             <i class="icon ion-iphone"></i> {{::item.mobile_special}}</span>
     <ionic-ratings class="col-33" style="font-size: 16px; white-space: nowrap; float: right;"

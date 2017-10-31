@@ -26,7 +26,7 @@ angular.module('starter')
         */
         this.SetLanguage = function (lang) {
             if (!angular.isString(lang) || lang.length < 5) {
-                lang = "en-US";
+                lang = "vi-VN";
             }
 
             $localStorage.lang = lang;

@@ -20,7 +20,7 @@ angular.module('starter')
            },
            controller: ['$scope', 'i18nService', '$localStorage', 'LANGUAGES', function ($scope, i18nService, $localStorage, LANGUAGES) {
                $scope.languages = LANGUAGES;
-               $scope.language = $localStorage.lang ? $localStorage.lang : 'en-US'
+               $scope.language = $localStorage.lang ? $localStorage.lang : 'vi-VN'
 
                $scope.$watch('language', function (language) {
                    i18nService.SetLanguage(language);

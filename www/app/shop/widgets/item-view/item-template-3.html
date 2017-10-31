@@ -5,9 +5,9 @@
     color: #FFFFFF; font-size: 13px;">
         <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
       </a>
-      <button style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+     <!--  <button style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF; font-size: 13px;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
         <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
-      </button>
+      </button> -->
     </div>
   </div>
   <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
@@ -18,8 +18,8 @@
   <div class="row">
     <div class="col item-price-view" style="text-align: inherit;">
       <span ng-if="item.special">{{::item.special}}</span>
-      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0Đ'">{{ 'shop.view_detail' | i18n}}</span>
-      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0Đ'">{{::item.price}}</span>
+      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
+      <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
       <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
                 <i class="icon ion-iphone"></i> {{::item.mobile_special}}
             </span>

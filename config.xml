@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.ionicunlock984853" version="3.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.erikchu.gocheck" version="3.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>24GoCheck 3.0</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -78,7 +78,6 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="1920" src="resources/ios/splash/Default-ios11.png" width="1080" />
     </platform>
-    <engine name="android" spec="~6.2.3" />
     <plugin name="cordova-plugin-app-event" spec="^1.2.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.8" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
@@ -95,4 +94,7 @@
     <plugin name="ionic-plugin-deploy" spec="^0.5.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="onesignal-cordova-plugin" spec="^2.0.3" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator">
+        <variable name="LOCATION_USAGE_DESCRIPTION" value="This app requires access to your location for navigation purposes" />
+    </plugin>
 </widget>

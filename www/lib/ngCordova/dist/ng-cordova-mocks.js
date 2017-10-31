@@ -1830,7 +1830,7 @@ ngCordovaMocks.factory('$cordovaGeolocation', ['$interval', '$q', function ($int
  */
 ngCordovaMocks.factory('$cordovaGlobalization', ['$q', function ($q) {
   var throwsError = false;
-  var language = (navigator.language) ? navigator.language : 'en-US';
+  var language = (navigator.language) ? navigator.language : 'vi-VN';
   var preferredLanguage = {value: language};
   var firstDayOfWeek = 'Sunday';
   var localeName = {value: language};

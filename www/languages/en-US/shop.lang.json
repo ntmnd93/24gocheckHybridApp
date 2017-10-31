@@ -66,7 +66,8 @@
   "show_more": "Show more",
 
   "view_detail" : "View Detail",
-  "view_detail_below" : "View Detail Below",
+  "view_detail_below" : "Contact Shop",
 
-  "menu_plus" : "More"
+  "menu_plus" : "More",
+  "direction": "Direction"
 }

@@ -25,44 +25,37 @@
           <div class="list">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
-              <a class="row" href="#" style="height: 120px; width: 100%">
-                <div class="col-35">
-                  <img preload-image class="full-image" ng-src="{{item.thumb}}"
-                       default-image="app/shop/images/placeholder.png"
-                       fallback-image="app/shop/images/placeholder.png"/>
-                  <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
-                        data-percent="{{item.off}}"></span>
-                </div>
-                <div style="width: 70%;" class="row detail-item-product">
-                  <div style="border-top: 9px;width: 90%; margin:0 10px;">
-                    <div  style="border-bottom: solid 1px #a9a6a6;">
-                      <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-                          ng-bind-html="item.name"></h2>
-                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
-                      <span ng-if="item.special != item.mobile_special && item.mobile_special"
-                            class="mobile-offer-items">
-            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
-                        </span>
-                      <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
-                            data-percent="{{item.off}}"></span>
-                    </div>
-                    <div>
-                      <img class="icon-image"
-                           preload-image ng-src="{{item.thumb}}"
-                           default-image="app/shop/images/placeholder.png"
-                           fallback-image="app/shop/images/placeholder.png"/>
-                      <h4 ng-bind="item.firstname"></h4>
-                      <ionic-ratings class="col-33" style="font-size: 12px; white-space: nowrap; margin-top: -5px;"
-                                     ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-                      <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
-                      <!--class="col-20 button button-full button-clear item-price-button"-->
-                      <!--style="margin-top: -30px; float: right;" ng-click="addToWishlist(item.product_id)">-->
-                      <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
-                      <!--</button>-->
-                    </div>
+              <div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
+                <div ng-if="showoverlay" style="opacity: .5;">
+                  <div class="row">
+                    <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
+    color: #FFFFFF;">
+                      <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
+                    </a>
+                    <button style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+                      <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
+                    </button>
                   </div>
                 </div>
-              </a>
+                <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
+              </div>
+              <div ng-click="showoverlay = !showoverlay" style="background-color: white;">
+                <h2 ng-bind-html="item.name" style="padding: 7px 0 2px  10px; margin-top: 4px;"></h2>
+                <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
+                <div class="row">
+                  <div class="col item-price-view" style="text-align: inherit;">
+                    <span ng-if="item.special">{{::item.special}}</span>
+                    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
+                    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
+                    <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
+                <i class="icon ion-iphone"></i> {{::item.mobile_special}}
+            </span>
+                  </div>
+                  <div class="col item-ratings">
+                    <ionic-ratings style="font-size: 85%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </ion-item>
@@ -72,44 +65,37 @@
           <div class="list">
 
             <div ng-repeat="item in data.latestItems" class="item-product" style="margin-bottom: 10px; border-radius: 5px;">
-              <a class="row" href="#" style="height: 120px; width: 100%">
-                <div class="col-35">
-                  <img preload-image class="full-image" ng-src="{{item.thumb}}"
-                       default-image="app/shop/images/placeholder.png"
-                       fallback-image="app/shop/images/placeholder.png"/>
-                  <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
-                        data-percent="{{item.off}}"></span>
-                </div>
-                <div style="width: 70%;" class="row detail-item-product">
-                  <div style="border-top: 9px;width: 90%; margin:0 10px;">
-                    <div  style="border-bottom: solid 1px #a9a6a6;">
-                      <h2 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-                          ng-bind-html="item.name"></h2>
-                      <span style="color:#ff5c00;" ng-class="{'has-special' : item.special}">{{::item.price}}</span>
-                      <span ng-if="item.special != item.mobile_special && item.mobile_special"
-                            class="mobile-offer-items">
-            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
-                        </span>
-                      <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off"
-                            data-percent="{{item.off}}"></span>
-                    </div>
-                    <div>
-                      <img class="icon-image"
-                           preload-image ng-src="{{item.thumb}}"
-                           default-image="app/shop/images/placeholder.png"
-                           fallback-image="app/shop/images/placeholder.png"/>
-                      <h4 ng-bind="item.firstname"></h4>
-                      <ionic-ratings class="col-33" style="font-size: 12px; white-space: nowrap; margin-top: -5px;"
-                                     ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
-                      <!--<button analytics-click="Wishlist" data-product-name="{{item.name}}"-->
-                      <!--class="col-20 button button-full button-clear item-price-button"-->
-                      <!--style="margin-top: -30px; float: right;" ng-click="addToWishlist(item.product_id)">-->
-                      <!--<i class="icon ion-ios-heart-outline"> 14</i>-->
-                      <!--</button>-->
-                    </div>
+              <div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
+                <div ng-if="showoverlay" style="opacity: .5;">
+                  <div class="row">
+                    <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline" style="border-color: #FFFFFF; background: 0 0;
+    color: #FFFFFF;">
+                      <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
+                    </a>
+                    <button style="border-color: #FFFFFF; background: 0 0; color: #FFFFFF;" analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+                      <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
+                    </button>
                   </div>
                 </div>
-              </a>
+                <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
+              </div>
+              <div ng-click="showoverlay = !showoverlay" style="background-color: white;">
+                <h2 ng-bind-html="item.name" style="padding: 7px 0 2px  10px; margin-top: 4px;"></h2>
+                <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
+                <div class="row">
+                  <div class="col item-price-view" style="text-align: inherit;">
+                    <span ng-if="item.special">{{::item.special}}</span>
+                    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price == '0 VND'">{{ 'shop.view_detail' | i18n}}</span>
+                    <span style="color:#ff5c00; font-size: 85%;" ng-class="{'has-special' : item.special}" ng-show="item.price != '0 VND'">{{::item.price}}</span>
+                    <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
+                <i class="icon ion-iphone"></i> {{::item.mobile_special}}
+            </span>
+                  </div>
+                  <div class="col item-ratings">
+                    <ionic-ratings style="font-size: 85%;" class="text-right" ratingsobj="{rating : item.rating, readOnly : true,iconOn: 'ion-ios-star', iconOff: 'ion-ios-star-outline', minRating : 1,iconOnColor: '#FEBA19', iconOffColor: 'rgb(255, 204, 0)'}"></ionic-ratings>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </ion-item>
